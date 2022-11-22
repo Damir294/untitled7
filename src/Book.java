@@ -25,4 +25,22 @@ public class Book
     public void setPublishingYear(int publishingYear) {
         this.publishingYear = publishingYear;
     }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(bookName, book.bookName);
+    }
+
+
+    public int hashCode() {
+        return Objects.hash(bookName);
+    }
+
+
+    public String toString() {
+        return bookName + ". " + author + ". " + publishingYear;
+    }
 }
+

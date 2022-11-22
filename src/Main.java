@@ -2,7 +2,6 @@ public class Main {
     public static void main(String[] args) {
 
 
-
         Author author1 = new Author("Dan Brown", "Brown");
         Book book1 = new Book("Later", author1, 2003);
 
@@ -16,7 +15,7 @@ public class Main {
         System.out.println();
 
         Author author2 = new Author("Steven", "King");
-        Book book2 = new Book("Harry Potter and the Chamber of Secrets", author2, 1996);
+        Book book2 = new Book("the green mile", author2, 1996);
 
         System.out.println("book2.bookName = " + book2.getBookName() + "\n" + "author2.authorFirstName = " +
                 author2.getAuthorFirstName() + "\n" + "author2.authorLastName = " + author2.getAuthorLastName() + "\n" +
@@ -24,5 +23,41 @@ public class Main {
 
         book2.setPublishingYear(1996);
         System.out.println("book2.getPublishingYear() = " + book2.getPublishingYear());
+        System.out.println("Checking the equality of book names:");
+        System.out.println(book1.equals(book2) + "\n");
+
+        System.out.println("Checking the equality of the author's first and last names:");
+        System.out.println(author1.equals(author2) + "\n");
+
+        System.out.println("Хеш-коды названий книг:");
+        System.out.println(book1.hashCode());
+        System.out.println(book2.hashCode());
+        if (book1.hashCode() != book2.hashCode()) {
+            System.out.println("Как видно, хеш-коды названий книг разные\n");
+        } else {
+            System.out.println("Как видно, хеш-коды названий книг одинаковые\n");
+        }
+
+        System.out.println("Хеш-коды имени и фамилии авторов:");
+        System.out.println(author1.hashCode());
+        System.out.println(author2.hashCode());
+
+        if (author1.hashCode() != author2.hashCode()) {
+            System.out.println("Как видно, хеш-коды имени и фамилии авторов разные\n");
+        } else {
+            System.out.println("Как видно, хеш-коды имени и фамилии авторов одинаковые\n");
+        }
+
+        Book b1 = new Book("Later", new Author("Dawn", "Browm"), 2003);
+        Book b2 = new Book("the green mile",
+                new Author("Steven", "King"), 1998);
+
+        String s1 = b1.toString();
+        String s2 = b2.toString();
+
+        System.out.println(s1);
+        System.out.println(s2);
     }
 }
+
+

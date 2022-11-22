@@ -14,5 +14,20 @@ public class Author
     public String getAuthorLastName() {
         return authorLastName;
     }
-}
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(authorFirstName, author.authorFirstName) && Objects.equals(authorLastName, author.authorLastName);
+    }
 
+
+    public int hashCode() {
+        return Objects.hash(authorFirstName, authorLastName);
+    }
+
+
+    public String toString() {
+        return authorFirstName + " " + authorLastName;
+    }
+}
